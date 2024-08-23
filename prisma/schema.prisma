@@ -12,3 +12,32 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Subject {
+  subject_id     String          @id @default(uuid())
+  subject_name   String
+  subject_code   String
+  total_classes  Int
+  UserAttendance UserAttendance?
+  Attendance     Attendance[]
+}
+
+model UserAttendance {
+  roll_Number     Int          @id
+  present_Days    Int
+  absent_Days     Int
+  current_classes Int
+  subject         Subject      @relation(fields: [subjectid], references: [subject_id])
+  subjectid       String       @unique
+  Attendance      Attendance[]
+}
+
+model Attendance {
+  id             Int            @id @default(autoincrement())
+  subject_id     String
+  present        Boolean
+  date           DateTime
+  UserAttendance UserAttendance @relation(fields: [roll_Number], references: [roll_Number])
+  subject        Subject        @relation(fields: [subject_id], references: [subject_id])
+  roll_Number    Int
+}
