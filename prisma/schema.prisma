@@ -25,9 +25,9 @@ model Subject {
 model UserAttendance {
   roll_Number     String       @id
   group           String
-  present_Days    Int
-  absent_Days     Int
-  current_classes Int
+  present_Days    Int          @default(0)
+  absent_Days     Int          @default(0)
+  current_classes Int          @default(0)
   subject         Subject      @relation(fields: [subjectid], references: [subject_id])
   subjectid       String       @unique
   Attendance      Attendance[]
