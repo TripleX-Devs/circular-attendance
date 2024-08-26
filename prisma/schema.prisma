@@ -23,7 +23,8 @@ model Subject {
 }
 
 model UserAttendance {
-  roll_Number     Int          @id
+  roll_Number     String       @id
+  group           String
   present_Days    Int
   absent_Days     Int
   current_classes Int
@@ -39,5 +40,5 @@ model Attendance {
   date           DateTime
   UserAttendance UserAttendance @relation(fields: [roll_Number], references: [roll_Number])
   subject        Subject        @relation(fields: [subject_id], references: [subject_id])
-  roll_Number    Int
+  roll_Number    String
 }
