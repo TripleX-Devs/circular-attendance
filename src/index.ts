@@ -3,8 +3,6 @@ import cors from 'cors';
 import { PORT } from './config/config';
 import createHttpError from 'http-errors';
 
-
-
 const app = express();
 app.use(cors());
 app.use(express.json());
