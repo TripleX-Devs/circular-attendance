@@ -9,7 +9,7 @@ app.use(express.json());
 
 
 app.get('/' , (req: Request , res: Response , next: NextFunction) => {
-    res.json({message: 'Hello World'});
+    res.json({message: 'Server is runnig fine'});
 });
 
 
@@ -22,3 +22,4 @@ app.use((err: Error , req: Request , res: Response , next: NextFunction) => {
 app.listen(PORT , () => {
     console.log(`server is running on port ${PORT}`);
 })
+
