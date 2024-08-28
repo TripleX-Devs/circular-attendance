@@ -1,0 +1,702 @@
+[
+  {
+    "roll_number": "2171681214",
+    "group_name": "G-4",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "2050852861",
+    "group_name": "G-2",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "6710011878",
+    "group_name": "G-2",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "8600993823",
+    "group_name": "G-5",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "9196011984",
+    "group_name": "G-1",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "1680320329",
+    "group_name": "G-3",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "9338940523",
+    "group_name": "G-3",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "6838505802",
+    "group_name": "G-2",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "0435740242",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "6188686091",
+    "group_name": "G-3",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "6582999193",
+    "group_name": "G-3",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "3694993201",
+    "group_name": "G-4",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "9888777812",
+    "group_name": "G-4",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "1033418007",
+    "group_name": "G-5",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "1691169131",
+    "group_name": "G-1",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "0348429346",
+    "group_name": "G-3",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "8816854970",
+    "group_name": "G-5",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "9836379652",
+    "group_name": "G-1",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "7559002574",
+    "group_name": "G-2",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "1101865550",
+    "group_name": "G-2",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "7727603221",
+    "group_name": "G-5",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "6624656681",
+    "group_name": "G-3",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "0531358722",
+    "group_name": "G-3",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "4033629897",
+    "group_name": "G-3",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "8073514167",
+    "group_name": "G-1",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "2534043019",
+    "group_name": "G-5",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "4671982345",
+    "group_name": "G-4",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "9889326360",
+    "group_name": "G-2",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "0519645142",
+    "group_name": "G-1",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "2586751761",
+    "group_name": "G-3",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "5139622281",
+    "group_name": "G-4",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "0269129257",
+    "group_name": "G-2",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "6156893773",
+    "group_name": "G-1",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "3913815662",
+    "group_name": "G-5",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "7704871363",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "6772847683",
+    "group_name": "G-4",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "6548780722",
+    "group_name": "G-1",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "0043324370",
+    "group_name": "G-1",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "7216346033",
+    "group_name": "G-2",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "8283790574",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "3452173679",
+    "group_name": "G-2",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "7888055947",
+    "group_name": "G-3",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "2177946112",
+    "group_name": "G-3",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "8725303729",
+    "group_name": "G-5",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "6170565321",
+    "group_name": "G-3",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "7829927321",
+    "group_name": "G-5",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "0557207560",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "2837739796",
+    "group_name": "G-2",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "6581142511",
+    "group_name": "G-4",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "6815927214",
+    "group_name": "G-1",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "2639942652",
+    "group_name": "G-1",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "9561563058",
+    "group_name": "G-1",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "8501677488",
+    "group_name": "G-2",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "0059018965",
+    "group_name": "G-3",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "2470942689",
+    "group_name": "G-5",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "0696011966",
+    "group_name": "G-1",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "7531450724",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "0174257973",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "1199602081",
+    "group_name": "G-1",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "5430423224",
+    "group_name": "G-1",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "4436978065",
+    "group_name": "G-4",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "6701618453",
+    "group_name": "G-1",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "4142692783",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "8737749233",
+    "group_name": "G-4",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "1190425317",
+    "group_name": "G-3",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "7583432630",
+    "group_name": "G-1",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "9107488536",
+    "group_name": "G-4",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "5648871229",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "2104414239",
+    "group_name": "G-2",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "8239560990",
+    "group_name": "G-4",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "5503821642",
+    "group_name": "G-2",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "9589263597",
+    "group_name": "G-1",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "6749995415",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "9115497094",
+    "group_name": "G-4",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "6623160142",
+    "group_name": "G-4",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "8403109921",
+    "group_name": "G-1",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "8160727995",
+    "group_name": "G-4",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "3801936938",
+    "group_name": "G-2",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "9780884652",
+    "group_name": "G-1",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "4365757627",
+    "group_name": "G-4",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "2143859401",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "8768071688",
+    "group_name": "G-3",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "0606356541",
+    "group_name": "G-4",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "8523724359",
+    "group_name": "G-5",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "1830817156",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "5218030292",
+    "group_name": "G-5",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "9202553887",
+    "group_name": "G-1",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "2589006859",
+    "group_name": "G-4",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "3261551429",
+    "group_name": "G-2",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "8613715868",
+    "group_name": "G-5",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "7617707514",
+    "group_name": "G-3",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "2478154239",
+    "group_name": "G-4",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "7736035520",
+    "group_name": "G-2",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "2589312509",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "9856565214",
+    "group_name": "G-4",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "8234789738",
+    "group_name": "G-4",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "9352420640",
+    "group_name": "G-5",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": false
+  },
+  {
+    "roll_number": "6844701792",
+    "group_name": "G-2",
+    "subject_name": "C++",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "5628819663",
+    "group_name": "G-2",
+    "subject_name": "JAVA",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  },
+  {
+    "roll_number": "6399053389",
+    "group_name": "G-1",
+    "subject_name": "BEE",
+    "date": "2024-08-27T16:51:56Z",
+    "present": true
+  }
+]
