@@ -1,20 +1,32 @@
 import { NextFunction, Request, Response } from "express";
 import prisma from "../../db";
 import createHttpError from "http-errors";
-import { date } from "zod";
+
 
 const getAttendance = async (req:Request, res:Response,next:NextFunction) => {
   if(!req.params.roll_Number){
     return next(createHttpError(400, 'Please provide roll number'));
   }
   const rollNumber = req.params.roll_Number;
+  const subject_name = req.body.subject_name
   try { 
+    const subject = await prisma.subject.findFirst({
+      where : {
+        subject_name : subject_name
+      },
+      select : {
+        subject_id : true
+      }
+    })
+    if(!subject){
+      return next(createHttpError(404, 'Subject not found'));
+    }
     const attendanceData = await prisma.userAttendance.findFirst({
      where : {
-        roll_Number : rollNumber 
+        roll_Number : rollNumber,
+        subjectid : subject.subject_id
      }
     });
-
     if(!attendanceData){
       return next(createHttpError(404, 'Attendance data not found'));
     }

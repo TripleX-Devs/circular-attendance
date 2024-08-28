@@ -59,6 +59,9 @@ async function seedData() {
         roll_Number: string;
         group: string;
         subjectid: string;
+        present_Days?: number;
+        current_classes?: number;
+        absent_Days?: number;
     }
 
     interface Student {
@@ -68,12 +71,15 @@ async function seedData() {
         date: Date;
         present: boolean;
     }
-    
     const userAttendances: UserAttendance[] = students.map((student: Student) => ({
         roll_Number: student.roll_number,
         group: student.group_name,
         subjectid: sub_id_map.get(student.subject_name),
+        present_Days : 30,
+        current_classes : 50,
+        absent_Days : 20
     }));
+
     await prisma.userAttendance.createMany({
         data: userAttendances,
     })
