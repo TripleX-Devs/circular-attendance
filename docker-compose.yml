@@ -12,6 +12,8 @@ services:
             - node_modules/
         - action: rebuild
           path: package.json
+        - action: rebuild
+          path: prisma
     container_name: attendence-services
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/attendence_service?schema=public
@@ -24,7 +26,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    command: sh -c "npx prisma migrate dev --name init && npm run db:seed && npm run dev"
+    command: sh -c "npx prisma migrate dev --name init && npm run db:seed && npm run db:generate && npm run dev"
 
   db:
     image: postgres:13
