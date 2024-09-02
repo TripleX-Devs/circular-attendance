@@ -4,5 +4,5 @@ import { AttendanceSchema } from "./AttendanceSchema";
 
 
 export const validateAttendance: RequestHandler = (req , res , next) => {
-    return validator(AttendanceSchema , req.body , next);
+  return validator(AttendanceSchema , req.body , next);
 }

@@ -4,55 +4,55 @@ import path from 'path';
 
 const filePath = path.join(__dirname, 'data.json');
 
-async function seedSubjects() {
-    try {
-        await prisma.subject.upsert({
-            where: { subject_code: "EE-101" },
-            create: {
-                subject_name: "BEE",
-                subject_code: "EE-101",
-                total_classes: 100
-            },
-            update: {}
-        })
+async function seedSubjects () {
+  try {
+    await prisma.subject.upsert({
+      where: { subject_code: "EE-101" },
+      create: {
+        subject_name: "BEE",
+        subject_code: "EE-101",
+        total_classes: 100
+      },
+      update: {}
+    })
 
-        await prisma.subject.upsert({
-            where: { subject_code: "EE-102" },
-            create: {
-                subject_name: "JAVA",
-                subject_code: "EE-102",
-                total_classes: 100
-            },
-            update: {}
-        })
+    await prisma.subject.upsert({
+      where: { subject_code: "EE-102" },
+      create: {
+        subject_name: "JAVA",
+        subject_code: "EE-102",
+        total_classes: 100
+      },
+      update: {}
+    })
 
-        await prisma.subject.upsert({
-            where: { subject_code: "EE-103" },
-            create: {
-                subject_name: "C++",
-                subject_code: "EE-103",
-                total_classes: 100
-            },
-            update: {}
-        })
-    } catch (error) {
-        console.error('Error seeding users:', error);
-        throw error;
-    }
+    await prisma.subject.upsert({
+      where: { subject_code: "EE-103" },
+      create: {
+        subject_name: "C++",
+        subject_code: "EE-103",
+        total_classes: 100
+      },
+      update: {}
+    })
+  } catch (error) {
+    console.error('Error seeding users:', error);
+    throw error;
+  }
 }
 
-async function seedData() {
-    const data = fs.readFileSync(filePath, 'utf-8');
-    const students = JSON.parse(data);
+async function seedData () {
+  const data = fs.readFileSync(filePath, 'utf-8');
+  const students = JSON.parse(data);
 
-    try {
-        const sub_ids = await prisma.subject.findMany({
-            select: {
-                subject_id: true,
-                subject_name: true
-            }
-        })
-        const sub_id_map = new Map(sub_ids.map((sub: any) => [sub.subject_name, sub.subject_id]));
+  try {
+    const sub_ids = await prisma.subject.findMany({
+      select: {
+        subject_id: true,
+        subject_name: true
+      }
+    })
+    const sub_id_map = new Map(sub_ids.map((sub: any) => [sub.subject_name, sub.subject_id]));
 
         interface UserAttendance {
             roll_Number: string;
@@ -71,17 +71,17 @@ async function seedData() {
             present: boolean;
         }
         const userAttendances: UserAttendance[] = students.map((student: Student) => ({
-            roll_Number: student.roll_number,
-            group: student.group_name,
-            subjectid: sub_id_map.get(student.subject_name),
-            present_Days: 30,
-            current_classes: 50,
-            absent_Days: 20
+          roll_Number: student.roll_number,
+          group: student.group_name,
+          subjectid: sub_id_map.get(student.subject_name),
+          present_Days: 30,
+          current_classes: 50,
+          absent_Days: 20
         }));
         console.log(userAttendances.length);
 
         await prisma.userAttendance.createMany({
-            data: userAttendances,
+          data: userAttendances,
         })
 
         interface Attendance {
@@ -92,34 +92,34 @@ async function seedData() {
         }
 
         const attendances: Attendance[] = students.map((student: Student) => ({
-            roll_Number: student.roll_number,
-            subject_id: sub_id_map.get(student.subject_name),
-            present: student.present,
-            date: student.date
+          roll_Number: student.roll_number,
+          subject_id: sub_id_map.get(student.subject_name),
+          present: student.present,
+          date: student.date
         }));
 
         await prisma.attendance.createMany({
-            data: attendances
+          data: attendances
         })
-    } catch (error) {
-        throw error;
-    }
+  } catch (error) {
+    throw error;
+  }
 }
 
-async function seedDatabase() {
-    try {
-        await seedSubjects();
-        await seedData();
-    } catch (error) {
-        console.error('Error seeding database:', error);
-        throw error;
-    } finally {
-        await prisma.$disconnect();
-    }
+async function seedDatabase () {
+  try {
+    await seedSubjects();
+    await seedData();
+  } catch (error) {
+    console.error('Error seeding database:', error);
+    throw error;
+  } finally {
+    await prisma.$disconnect();
+  }
 }
 
 seedDatabase().catch((error) => {
-    console.error('An unexpected error occurred during seeding:', error);
-    process.exit(1);
+  console.error('An unexpected error occurred during seeding:', error);
+  process.exit(1);
 });
 

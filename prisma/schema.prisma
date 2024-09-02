@@ -14,31 +14,30 @@ datasource db {
 }
 
 model Subject {
-  subject_id     String          @id @default(uuid())
+  subject_id     String           @id @default(uuid())
   subject_name   String
-  subject_code   String          @unique
+  subject_code   String           @unique
   total_classes  Int
   UserAttendance UserAttendance[]
   Attendance     Attendance[]
 }
 
 model UserAttendance {
-  id              String          @id @default(uuid())
-  roll_Number     String       
+  id              String  @id @default(uuid())
+  roll_Number     String
   group           String
-  present_Days    Int          @default(0)
-  absent_Days     Int          @default(0)
-  current_classes Int          @default(0)
-  subject         Subject      @relation(fields: [subjectid], references: [subject_id])
-  subjectid       String       
-  
+  present_Days    Int     @default(0)
+  absent_Days     Int     @default(0)
+  current_classes Int     @default(0)
+  subject         Subject @relation(fields: [subjectid], references: [subject_id])
+  subjectid       String
 }
 
 model Attendance {
-  id             Int            @id @default(autoincrement())
-  subject_id     String
-  present        Boolean
-  date           DateTime
-  subject        Subject        @relation(fields: [subject_id], references: [subject_id])
-  roll_Number    String
+  id          Int      @id @default(autoincrement())
+  subject_id  String
+  present     Boolean
+  date        DateTime
+  subject     Subject  @relation(fields: [subject_id], references: [subject_id])
+  roll_Number String
 }
