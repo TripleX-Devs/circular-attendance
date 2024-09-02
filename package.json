@@ -14,7 +14,8 @@
     "db:seed": "prisma db seed",
     "db:reset": "prisma migrate reset --force",
     "db:migrate": "npx prisma migrate dev",
-    "db:generate": "npx prisma generate"
+    "db:generate": "npx prisma generate",
+    "prettier": "prettier . --write"
   },
   "keywords": [],
   "author": "",
@@ -31,7 +32,6 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.8.3",
     "@dotenvx/dotenvx": "^1.11.3",
     "@eslint/js": "^9.9.1",
     "@types/cors": "^2.8.17",
@@ -39,6 +39,7 @@
     "@types/node": "^22.5.1",
     "eslint": "^9.9.1",
     "globals": "^15.9.0",
+    "prettier": "3.3.3",
     "prisma": "^5.19.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
