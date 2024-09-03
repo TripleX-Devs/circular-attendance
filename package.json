@@ -15,7 +15,8 @@
     "db:reset": "prisma migrate reset --force",
     "db:migrate": "npx prisma migrate dev",
     "db:generate": "npx prisma generate",
-    "prettier": "prettier . --write"
+    "prettier": "prettier . --write",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "",
@@ -36,9 +37,11 @@
     "@eslint/js": "^9.9.1",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
+    "@types/http-errors": "^2.0.4",
     "@types/node": "^22.5.1",
     "eslint": "^9.9.1",
     "globals": "^15.9.0",
+    "husky": "^9.1.5",
     "prettier": "3.3.3",
     "prisma": "^5.19.0",
     "ts-node": "^10.9.2",

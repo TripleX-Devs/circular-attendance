@@ -13,6 +13,7 @@ export default [
       "space-in-parens": ["error", "never"],
     },
   },
+  { ignores: ["dist", "node_modules"] },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
 ];
