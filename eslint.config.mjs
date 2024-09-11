@@ -4,14 +4,6 @@ import tseslint from "typescript-eslint";
 export default [
   {
     languageOptions: { globals: globals.node },
-    rules: {
-      // Indentation rule: 2 spaces
-      indent: ["error", 2],
-      // Space before function parenthesis
-      "space-before-function-paren": ["error", "always"],
-      // No space inside parentheses
-      "space-in-parens": ["error", "never"],
-    },
   },
   { ignores: ["dist", "node_modules"] },
   pluginJs.configs.recommended,
