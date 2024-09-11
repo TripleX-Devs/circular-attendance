@@ -41,3 +41,10 @@ model Attendance {
   subject     Subject  @relation(fields: [subject_id], references: [subject_id])
   roll_Number String
 }
+
+model Circular {
+  id          String   @id @default(uuid())
+  circularUrl String
+  batch       String
+  date        DateTime
+}
