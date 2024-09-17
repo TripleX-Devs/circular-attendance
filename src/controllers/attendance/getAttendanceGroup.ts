@@ -24,6 +24,7 @@ const getAttendanceByGroup = async (
       data: attendanceDataByGroup,
     });
   } catch (error) {
+    console.error(error);
     next(createHttpError(500, "Internal Server Error"));
   }
 };

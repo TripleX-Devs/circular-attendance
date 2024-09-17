@@ -55,6 +55,7 @@ const getAttendance = async (
       },
     });
   } catch (error) {
+    console.error(error);
     next(createHttpError(500, "Internal Server Error"));
   }
 };

@@ -45,7 +45,6 @@ async function seedData() {
   const data = fs.readFileSync(filePath, "utf-8");
   const students = JSON.parse(data);
 
-  try {
     const sub_ids = await prisma.subject.findMany({
       select: {
         subject_id: true,
@@ -105,10 +104,7 @@ async function seedData() {
     await prisma.attendance.createMany({
       data: attendances,
     });
-  } catch (error) {
-    throw error;
   }
-}
 
 async function seedDatabase() {
   try {

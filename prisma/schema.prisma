@@ -47,4 +47,5 @@ model Circular {
   circularUrl String
   batch       String
   date        DateTime
+  @@unique([circularUrl , batch , date])
 }
