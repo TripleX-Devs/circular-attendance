@@ -1,6 +1,6 @@
 import prisma from "../src/db";
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
 
 const filePath = path.join(__dirname, "data.json");
 
@@ -52,6 +52,7 @@ async function seedData() {
     },
   });
   const sub_id_map = new Map(
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     sub_ids.map((sub: any) => [sub.subject_name, sub.subject_id]),
   );
 
