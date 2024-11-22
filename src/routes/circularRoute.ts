@@ -1,4 +1,4 @@
-import * as circularControllers from "@/controllers/circular";
+import * as circularControllers from "../controllers/circular";
 
 import { Router } from "express";
 

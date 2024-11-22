@@ -1,6 +1,5 @@
 import type { NextFunction, Request, Response } from "express";
 import prisma from "../../db";
-import createHttpError from "http-errors";
 
 const getAttendance = async (
   req: Request,
@@ -8,10 +7,11 @@ const getAttendance = async (
   next: NextFunction,
 ) => {
   if (!req.params.roll_Number) {
-    return next(createHttpError(400, "Please provide roll number"));
+    return  res.status(400).json({message : "please provide roll number"})
   }
   const rollNumber = req.params.roll_Number;
   const subject_name = req.body.subject_name;
+  console.log(rollNumber);
   try {
     const subject = await prisma.subject.findFirst({
       where: {
@@ -22,16 +22,18 @@ const getAttendance = async (
       },
     });
     if (!subject) {
-      return next(createHttpError(404, "Subject not found"));
+      return res.status(404).json({message : "subject not found"})
     }
+    console.log("subect id " + JSON.stringify(subject));
     const attendanceData = await prisma.userAttendance.findFirst({
       where: {
         roll_Number: rollNumber,
         subjectid: subject.subject_id,
       },
     });
+    console.log("Attendence data "+ JSON.stringify(attendanceData))
     if (!attendanceData) {
-      return next(createHttpError(404, "Attendance data not found"));
+      return res.status(404).json({message : "attendence data not found"})
     }
 
     const presentDays = attendanceData.present_Days;
@@ -56,7 +58,7 @@ const getAttendance = async (
     });
   } catch (error) {
     console.error(error);
-    next(createHttpError(500, "Internal Server Error"));
+    return res.status(500).json({message : "internal server error"})
   }
 };
 export default getAttendance;

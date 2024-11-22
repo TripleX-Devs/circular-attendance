@@ -1,3 +1,3 @@
-export * from "@/controllers/circular/postCircular";
-export * from "@/controllers/circular/getCircular";
-export * from "@/controllers/circular/deleteCircular";
+export * from "./postCircular";
+export * from "./getCircular";
+export * from "./deleteCircular";

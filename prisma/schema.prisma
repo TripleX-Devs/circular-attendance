@@ -31,6 +31,8 @@ model UserAttendance {
   current_classes Int     @default(0)
   subject         Subject @relation(fields: [subjectid], references: [subject_id])
   subjectid       String
+
+  @@unique([roll_Number,subjectid])
 }
 
 model Attendance {
