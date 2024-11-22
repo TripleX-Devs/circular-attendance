@@ -1,4 +1,3 @@
-
 import prisma from "../../db";
 
 import type { RequestHandler } from "express";

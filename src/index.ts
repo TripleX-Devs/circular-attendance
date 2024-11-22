@@ -18,7 +18,6 @@ const base = "/api/v1";
 app.use(`${base}/attendance`, AttendanceRoutes);
 app.use(`${base}/circular`, circularRoutes);
 
-
 app.listen(PORT, () => {
   console.log(`server is running on port ${PORT}`);
 });

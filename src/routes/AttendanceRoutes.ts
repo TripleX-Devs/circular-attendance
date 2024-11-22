@@ -6,6 +6,6 @@ const router = Router();
 
 router.get("/getAttendance/:roll_Number", getAttendance);
 
-router.post("/postAttendence" , PostAttendence)
+router.post("/postAttendence", PostAttendence);
 
 export default router;

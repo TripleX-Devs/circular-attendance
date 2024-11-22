@@ -7,7 +7,7 @@ const getAttendance = async (
   next: NextFunction,
 ) => {
   if (!req.params.roll_Number) {
-    return  res.status(400).json({message : "please provide roll number"})
+    return res.status(400).json({ message: "please provide roll number" });
   }
   const rollNumber = req.params.roll_Number;
   const subject_name = req.body.subject_name;
@@ -22,7 +22,7 @@ const getAttendance = async (
       },
     });
     if (!subject) {
-      return res.status(404).json({message : "subject not found"})
+      return res.status(404).json({ message: "subject not found" });
     }
     console.log("subect id " + JSON.stringify(subject));
     const attendanceData = await prisma.userAttendance.findFirst({
@@ -31,9 +31,9 @@ const getAttendance = async (
         subjectid: subject.subject_id,
       },
     });
-    console.log("Attendence data "+ JSON.stringify(attendanceData))
+    console.log("Attendence data " + JSON.stringify(attendanceData));
     if (!attendanceData) {
-      return res.status(404).json({message : "attendence data not found"})
+      return res.status(404).json({ message: "attendence data not found" });
     }
 
     const presentDays = attendanceData.present_Days;
@@ -58,7 +58,7 @@ const getAttendance = async (
     });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({message : "internal server error"})
+    return res.status(500).json({ message: "internal server error" });
   }
 };
 export default getAttendance;
