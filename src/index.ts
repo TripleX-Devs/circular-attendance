@@ -1,8 +1,10 @@
-import express, { Request, Response } from "express";
+import express from "express";
+import type { Request, Response } from "express";
 import cors from "cors";
 import { PORT } from "./config/config";
 import createHttpError from "http-errors";
 import AttendanceRoutes from "./routes/AttendanceRoutes";
+import circularRoutes from "@/routes/circularRoute";
 
 const app = express();
 app.use(cors());
@@ -12,7 +14,10 @@ app.get("/", (req: Request, res: Response) => {
   res.json({ message: "Server is runnig fine" });
 });
 
-app.use("/api/v1/attendance", AttendanceRoutes);
+const base = "/api/v1";
+
+app.use(`${base}/attendance`, AttendanceRoutes);
+app.use(`${base}/circular`, circularRoutes);
 
 app.use((err: Error, req: Request, res: Response) => {
   if (err instanceof createHttpError.HttpError) {

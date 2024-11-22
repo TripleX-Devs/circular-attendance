@@ -6,7 +6,6 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./prisma/seed.ts --preview-feature"
   },
   "scripts": {
-    "lint": "eslint .",
     "watch": "tsc -w",
     "start2": "nodemon dist/index.js",
     "start": "node dist/index.js",
