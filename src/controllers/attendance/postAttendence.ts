@@ -93,12 +93,10 @@ const PostAttendence = async (
     res.status(200).json({ message: "attendance data processed successfully" });
   } catch (error) {
     console.log(error);
-    res
-      .status(500)
-      .json({
-        message: "An error occurred while processing attendance data",
-        error,
-      });
+    res.status(500).json({
+      message: "An error occurred while processing attendance data",
+      error,
+    });
   }
 };
 
