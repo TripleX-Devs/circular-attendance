@@ -1,18 +1,19 @@
 FROM node:20-alpine
 
+RUN npm install -g pnpm
 
 WORKDIR /user/src/app
 
-COPY package* ./
+COPY package.json ./
+COPY pnpm-lock.yaml ./
 
-RUN npm install
+RUN pnpm install
 
-COPY ./prisma .
-
-RUN npm run db:generate
-
+COPY ./prisma ./prisma
 COPY . .
+
+RUN pnpm run build
 
 EXPOSE 8080
 
-CMD [ "npm" , "run" , "dev" ]
+CMD ["pnpm", "run", "dev"]

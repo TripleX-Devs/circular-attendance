@@ -3,17 +3,6 @@ version: "3.8"
 services:
   app:
     build: .
-    develop:
-      watch:
-        - action: sync
-          path: .
-          target: /user/src/app
-          ignore:
-            - node_modules/
-        - action: rebuild
-          path: package.json
-        - action: rebuild
-          path: prisma
     container_name: attendence-services
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/attendence_service?schema=public
@@ -22,11 +11,12 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - postgres_data:/data/db
+      - .:/user/src/app
+      - /user/src/app/node_modules
     depends_on:
       db:
         condition: service_healthy
-    command: sh -c "npx prisma migrate dev --name init && npm run db:seed && npm run db:generate && npm run dev"
+    command: sh -c "pnpm run db:migrate && pnpm run db:generate && pnpm run db:seed && pnpm run dev"
 
   db:
     image: postgres:13
