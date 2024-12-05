@@ -15,30 +15,31 @@ export default async function kafka() {
     eachMessage: async ({ message }) => {
       try {
         const event = JSON.parse(message.value?.toString() || "{}");
+        console.log(event)
 
         if (
-          !event.payload?.rollNumber ||
-          !event.payload?.group ||
-          !event.payload?.name
+          !event.rollNumber ||
+          !event.group ||
+          !event.name
         ) {
           console.error("Invalid event payload:", event);
           return;
         }
 
         await prisma.user.upsert({
-          where: { rollNumber: event.payload.rollNumber },
+          where: { rollNumber: event.rollNumber },
           update: {
-            group: event.payload.group,
-            name: event.payload.name,
+            group: event.group,
+            name: event.name,
           },
           create: {
-            rollNumber: event.payload.rollNumber,
-            group: event.payload.group,
-            name: event.payload.name,
+            rollNumber: event.rollNumber,
+            group: event.group,
+            name: event.name,
           },
         });
 
-        console.log(`User processed successfully: ${event.payload.rollNumber}`);
+        console.log(`User processed successfully: ${event.rollNumber}`);
       } catch (error) {
         console.error("Error processing message:", error);
       }
