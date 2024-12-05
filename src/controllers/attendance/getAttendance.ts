@@ -9,16 +9,16 @@ const getAttendance = async (
   if (!req.params.roll_Number) {
     return res.status(400).json({ message: "please provide roll number" });
   }
-  const rollNumber = req.params.roll_Number;
-  const subject_name = req.body.subject_name;
+  const rollNumber = req.params.rollNumber;
+  const subjectName = req.body.subjectName;
   console.log(rollNumber);
   try {
     const subject = await prisma.subject.findFirst({
       where: {
-        subject_name: subject_name,
+        subjectName: subjectName,
       },
       select: {
-        subject_id: true,
+        subjectId: true,
       },
     });
     if (!subject) {
@@ -27,8 +27,8 @@ const getAttendance = async (
     console.log("subect id " + JSON.stringify(subject));
     const attendanceData = await prisma.userAttendance.findFirst({
       where: {
-        roll_Number: rollNumber,
-        subjectid: subject.subject_id,
+        rollNumber: rollNumber,
+        subjectId: subject.subjectId,
       },
     });
     console.log("Attendence data " + JSON.stringify(attendanceData));
@@ -36,8 +36,8 @@ const getAttendance = async (
       return res.status(404).json({ message: "attendence data not found" });
     }
 
-    const presentDays = attendanceData.present_Days;
-    const totalDays = attendanceData.current_classes;
+    const presentDays = attendanceData.presentDays;
+    const totalDays = attendanceData.currentClasses;
     const percentage = (presentDays / totalDays) * 100;
     if (presentDays === 0 && totalDays === 0) {
       return res.json({

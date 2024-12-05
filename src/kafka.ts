@@ -15,13 +15,9 @@ export default async function kafka() {
     eachMessage: async ({ message }) => {
       try {
         const event = JSON.parse(message.value?.toString() || "{}");
-        console.log(event)
+        console.log(event);
 
-        if (
-          !event.rollNumber ||
-          !event.group ||
-          !event.name
-        ) {
+        if (!event.rollNumber || !event.group || !event.name) {
           console.error("Invalid event payload:", event);
           return;
         }

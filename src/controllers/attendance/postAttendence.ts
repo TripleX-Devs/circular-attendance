@@ -2,23 +2,23 @@ import type { NextFunction, Request, Response } from "express";
 import prisma from "../../db";
 
 interface Attendance {
-  RollNumber: string;
-  GroupName: string;
-  Present: boolean;
-  SubjectName: string;
-  Date: Date;
+  rollNumber: string;
+  groupName: string;
+  present: boolean;
+  subjectName: string;
+  date: Date;
 }
 
 interface AttendenceTableData {
-  roll_Number: string;
+  rollNumber: string;
   present: boolean;
-  subject_id: string;
+  subjectId: string;
   date: Date;
 }
 
 interface sub {
-  subject_id: string;
-  subject_name: string;
+  subjectId: string;
+  subjectName: string;
 }
 
 const PostAttendence = async (
@@ -31,24 +31,24 @@ const PostAttendence = async (
   if (!AttendanceData)
     return res.status(404).json({ message: "attendance data not received" });
 
-  const SubjectId = await prisma.subject.findMany({
+  const subjectId = await prisma.subject.findMany({
     select: {
-      subject_id: true,
-      subject_name: true,
+      subjectId: true,
+      subjectName: true,
     },
   });
 
   const SubjectIdMap = new Map(
-    SubjectId.map((sub: sub) => [sub.subject_name, sub.subject_id]),
+    subjectId.map((sub: sub) => [sub.subjectName, sub.subjectId]),
   );
 
   // filling the attendance table
   const AttendenceTableData: AttendenceTableData[] = AttendanceData.map(
-    ({ GroupName, ...rest }) => ({
-      roll_Number: rest.RollNumber,
-      present: rest.Present,
-      subject_id: SubjectIdMap.get(rest.SubjectName) ?? "",
-      date: rest.Date,
+    ({ groupName, ...rest }) => ({
+      rollNumber: rest.rollNumber,
+      present: rest.present,
+      subjectId: SubjectIdMap.get(rest.subjectName) ?? "",
+      date: rest.date,
     }),
   );
 
@@ -62,29 +62,28 @@ const PostAttendence = async (
       for (const data of AttendanceData) {
         await prisma.userAttendance.upsert({
           where: {
-            roll_Number_subjectid: {
-              roll_Number: data.RollNumber,
-              subjectid: SubjectIdMap.get(data.SubjectName) ?? "",
+            rollNumber_subjectId: {
+              rollNumber: data.rollNumber,
+              subjectId: SubjectIdMap.get(data.subjectName) ?? "",
             },
           },
           update: {
-            present_Days: {
-              increment: data.Present ? 1 : 0,
+            presentDays: {
+              increment: data.present ? 1 : 0,
             },
-            absent_Days: {
-              increment: data.Present ? 0 : 1,
+            absentDays: {
+              increment: data.present ? 0 : 1,
             },
-            current_classes: {
+            currentClasses: {
               increment: 1,
             },
           },
           create: {
-            roll_Number: data.RollNumber,
-            group: data.GroupName,
-            present_Days: data.Present ? 1 : 0,
-            absent_Days: data.Present ? 0 : 1,
-            current_classes: 1,
-            subjectid: SubjectIdMap.get(data.SubjectName) ?? "",
+            rollNumber: data.rollNumber,
+            presentDays: data.present ? 1 : 0,
+            absentDays: data.present ? 0 : 1,
+            currentClasses: 1,
+            subjectId: SubjectIdMap.get(data.subjectName) ?? "",
           },
         });
       }
