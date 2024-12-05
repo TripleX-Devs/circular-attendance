@@ -16,7 +16,7 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    command: sh -c "pnpm run db:migrate && pnpm run db:generate && pnpm run db:seed && pnpm run dev"
+    command: sh -c "pnpm run db:migrate && pnpm run db:generate  && pnpm run dev"
 
   db:
     image: postgres:13
