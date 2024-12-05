@@ -14,34 +14,45 @@ datasource db {
 }
 
 model Subject {
-  subject_id     String           @id @default(uuid())
-  subject_name   String
-  subject_code   String           @unique
-  total_classes  Int
-  UserAttendance UserAttendance[]
-  Attendance     Attendance[]
+  subjectId     String           @id @default(uuid())
+  subjectName   String
+  subjectCode   String           @unique
+  totalClasses  Int
+  userAttendance UserAttendance[]
+  attendance     Attendance[]
+}
+
+model User {
+  rollNumber   String @id
+  group        String
+  name         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  attendance   Attendance[]
+  userAttendance UserAttendance[]
 }
 
 model UserAttendance {
   id              String  @id @default(uuid())
-  roll_Number     String
-  group           String
-  present_Days    Int     @default(0)
-  absent_Days     Int     @default(0)
-  current_classes Int     @default(0)
-  subject         Subject @relation(fields: [subjectid], references: [subject_id])
-  subjectid       String
+  rollNumber      String
+  presentDays     Int     @default(0)
+  absentDays      Int     @default(0)
+  currentClasses  Int     @default(0)
+  subject         Subject @relation(fields: [subjectId], references: [subjectId])
+  subjectId       String
+  user            User    @relation(fields: [rollNumber], references: [rollNumber])
 
-  @@unique([roll_Number,subjectid])
+  @@unique([rollNumber, subjectId])
 }
 
 model Attendance {
-  id          Int      @id @default(autoincrement())
-  subject_id  String
+  id          String      @id @default(uuid())
+  subjectId   String
   present     Boolean
   date        DateTime
-  subject     Subject  @relation(fields: [subject_id], references: [subject_id])
-  roll_Number String
+  subject     Subject  @relation(fields: [subjectId], references: [subjectId])
+  rollNumber  String
+  user        User     @relation(fields: [rollNumber], references: [rollNumber])
 }
 
 model Circular {
