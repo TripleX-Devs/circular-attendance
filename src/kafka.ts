@@ -9,44 +9,65 @@ export default async function kafka() {
   console.log("Kafka consumer connected to broker");
 
   await consumer.subscribe({ topic: "student.created", fromBeginning: true });
-  console.log("Subscribed to topic: student.created");
+  await consumer.subscribe({ topic: "student.deleted", fromBeginning: true });
+  console.log("Subscribed to topics: student.created, student.deleted");
 
   await consumer.run({
-    eachMessage: async ({ message }) => {
+    eachMessage: async ({ topic, message }) => {
       try {
         const event = JSON.parse(message.value?.toString() || "{}");
-        console.log(event);
+        console.log(`Processing event from topic ${topic}:`, event);
 
-        if (!event.rollNumber || !event.group || !event.name) {
-          console.error("Invalid event payload:", event);
-          return;
-        }
-
-        await prisma.user.upsert({
-          where: { rollNumber: event.rollNumber },
-          update: {
-            group: event.group,
-            name: event.name,
-          },
-          create: {
-            rollNumber: event.rollNumber,
-            group: event.group,
-            name: event.name,
-          },
-        });
-
-        console.log(`User processed successfully: ${event.rollNumber}`);
+        await studentHandler(topic, event);
+        console.log(`Event processed successfully: ${event.rollNumber}`);
       } catch (error) {
         console.error("Error processing message:", error);
       }
     },
   });
+}
 
-  consumer.on("consumer.crash", (event) => {
-    console.error("Consumer crashed:", event);
-  });
+async function studentHandler(topic: string, event: any) {
+  if (topic === "student.created") {
+    if (!isValidStudentCreatedEvent(event)) {
+      console.error("Invalid student.created event payload:", event);
+      return;
+    }
 
-  consumer.on("consumer.disconnect", () => {
-    console.warn("Consumer disconnected");
-  });
+    await prisma.user.upsert({
+      where: { rollNumber: event.rollNumber },
+      update: {
+        group: event.group,
+        name: event.name,
+      },
+      create: {
+        rollNumber: event.rollNumber,
+        group: event.group,
+        name: event.name,
+      },
+    });
+  } else if (topic === "student.deleted") {
+    if (!isValidStudentDeletedEvent(event)) {
+      console.error("Invalid student.deleted event payload:", event);
+      return;
+    }
+
+    await prisma.user.delete({
+      where: {
+        rollNumber: event.rollNumber,
+      },
+    });
+  }
+}
+
+function isValidStudentCreatedEvent(event: any) {
+  return (
+    typeof event.rollNumber === "string" &&
+    typeof event.group === "string" &&
+    typeof event.name === "string"
+  );
+}
+
+function isValidStudentDeletedEvent(event: any) {
+  return typeof event.rollNumber === "string";
 }

@@ -4,7 +4,7 @@ import PostAttendence from "../controllers/attendance/postAttendence";
 
 const router = Router();
 
-router.get("/getAttendance/:roll_Number", getAttendance);
+router.get("/getAttendance/:rollNumber", getAttendance);
 
 router.post("/postAttendence", PostAttendence);
 

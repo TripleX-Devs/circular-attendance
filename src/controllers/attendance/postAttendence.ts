@@ -31,28 +31,53 @@ const PostAttendence = async (
   if (!AttendanceData)
     return res.status(404).json({ message: "attendance data not received" });
 
-  const subjectId = await prisma.subject.findMany({
-    select: {
-      subjectId: true,
-      subjectName: true,
-    },
-  });
-
-  const SubjectIdMap = new Map(
-    subjectId.map((sub: sub) => [sub.subjectName, sub.subjectId]),
-  );
-
-  // filling the attendance table
-  const AttendenceTableData: AttendenceTableData[] = AttendanceData.map(
-    ({ groupName, ...rest }) => ({
-      rollNumber: rest.rollNumber,
-      present: rest.present,
-      subjectId: SubjectIdMap.get(rest.subjectName) ?? "",
-      date: rest.date,
-    }),
-  );
-
   try {
+    const subjectId = await prisma.subject.findMany({
+      select: {
+        subjectId: true,
+        subjectName: true,
+      },
+    });
+
+    const SubjectIdMap = new Map(
+      subjectId.map((sub: sub) => [sub.subjectName, sub.subjectId]),
+    );
+
+    // Check if all users exist
+    const rollNumbers = AttendanceData.map((data) => data.rollNumber);
+    const users = await prisma.user.findMany({
+      where: {
+        rollNumber: { in: rollNumbers },
+      },
+      select: {
+        rollNumber: true,
+      },
+    });
+
+    console.log(users);
+
+    const existingRollNumbers = new Set(users.map((user) => user.rollNumber));
+    const missingRollNumbers = rollNumbers.filter(
+      (rollNumber) => !existingRollNumbers.has(rollNumber),
+    );
+
+    if (missingRollNumbers.length > 0) {
+      return res.status(404).json({
+        message: "Some users not found",
+        missingRollNumbers,
+      });
+    }
+
+    // filling the attendance table
+    const AttendenceTableData: AttendenceTableData[] = AttendanceData.map(
+      ({ groupName, ...rest }) => ({
+        rollNumber: rest.rollNumber,
+        present: rest.present,
+        subjectId: SubjectIdMap.get(rest.subjectName) ?? "",
+        date: rest.date,
+      }),
+    );
+
     await prisma.$transaction(async (prisma) => {
       await prisma.attendance.createMany({
         data: AttendenceTableData,
