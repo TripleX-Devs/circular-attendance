@@ -1,8 +1,12 @@
 import prisma from "../../db";
 
-import type { RequestHandler } from "express";
+import type { RequestHandler , Response , NextFunction } from "express";
+import { CustomRequest } from "@/validation/jwtVerify";
 
-export const newCircular: RequestHandler = async (req, res, next) => {
+export const newCircular = async (req : CustomRequest, res : Response, next : NextFunction) => {
+  if (req.user?.rollType !== "teacher") {
+    return res.status(403).json({ message: "Forbidden: Only teachers can access this route" });
+  }
   const { circularData } = req.body;
 
   try {

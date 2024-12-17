@@ -1,5 +1,7 @@
 import type { NextFunction, Request, Response } from "express";
 import prisma from "../../db";
+import { CustomRequest } from "@/validation/jwtVerify";
+// Import CustomRequest type
 
 interface Attendance {
   rollNumber: string;
@@ -22,10 +24,15 @@ interface sub {
 }
 
 const PostAttendence = async (
-  req: Request,
+  req: CustomRequest,
   res: Response,
   next: NextFunction,
 ) => {
+  // Check if the user is a teacher
+  if (req.user?.rollType !== "teacher") {
+    return res.status(403).json({ message: "Forbidden: Only teachers can access this route" });
+  }
+
   const AttendanceData: Attendance[] = req.body.data;
 
   if (!AttendanceData)

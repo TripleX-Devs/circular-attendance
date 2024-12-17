@@ -1,8 +1,12 @@
 import prisma from "../../db";
 
-import type { RequestHandler } from "express";
+import type {  Response , NextFunction } from "express";
+import { CustomRequest } from "@/validation/jwtVerify";
 
-export const deleteCircularById: RequestHandler = async (req, res, next) => {
+export const deleteCircularById = async (req : CustomRequest, res : Response, next : NextFunction) => {
+  if (req.user?.rollType !== "teacher") {
+    return res.status(403).json({ message: "Forbidden: Only teachers can access this route" });
+  }
   const circularId = req.params.circularId;
 
   //   let resMessage = `Request to delete Circular of ${circularId} was successfull.`;
