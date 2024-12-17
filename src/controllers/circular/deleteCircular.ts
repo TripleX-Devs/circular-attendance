@@ -1,11 +1,17 @@
 import prisma from "../../db";
 
-import type {  Response , NextFunction } from "express";
+import type { Response, NextFunction } from "express";
 import { CustomRequest } from "@/validation/jwtVerify";
 
-export const deleteCircularById = async (req : CustomRequest, res : Response, next : NextFunction) => {
+export const deleteCircularById = async (
+  req: CustomRequest,
+  res: Response,
+  next: NextFunction,
+) => {
   if (req.user?.rollType !== "teacher") {
-    return res.status(403).json({ message: "Forbidden: Only teachers can access this route" });
+    return res
+      .status(403)
+      .json({ message: "Forbidden: Only teachers can access this route" });
   }
   const circularId = req.params.circularId;
 

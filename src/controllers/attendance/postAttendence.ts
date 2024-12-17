@@ -30,7 +30,9 @@ const PostAttendence = async (
 ) => {
   // Check if the user is a teacher
   if (req.user?.rollType !== "teacher") {
-    return res.status(403).json({ message: "Forbidden: Only teachers can access this route" });
+    return res
+      .status(403)
+      .json({ message: "Forbidden: Only teachers can access this route" });
   }
 
   const AttendanceData: Attendance[] = req.body.data;

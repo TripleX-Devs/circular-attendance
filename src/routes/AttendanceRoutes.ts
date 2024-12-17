@@ -5,8 +5,8 @@ import { checkForAccessToken } from "@/validation/jwtVerify";
 
 const router = Router();
 
-router.get("/getAttendance/:rollNumber", checkForAccessToken,getAttendance);
+router.get("/getAttendance/:rollNumber", checkForAccessToken, getAttendance);
 
-router.post("/postAttendence", checkForAccessToken,PostAttendence);
+router.post("/postAttendence", checkForAccessToken, PostAttendence);
 
 export default router;

@@ -20,14 +20,14 @@ export const checkForAccessToken = async (
   next: NextFunction,
 ) => {
   const authHeader = req.headers.authorization;
-  const token = authHeader && authHeader.split(' ')[1]; // Extract token from 'Bearer <token>'
+  const token = authHeader && authHeader.split(" ")[1]; // Extract token from 'Bearer <token>'
 
   if (!token) {
     return res.status(401).json({ message: "Unauthorized" });
   }
 
   try {
-    const decodedToken = jwt.verify(token,JWT_SECRET) as DecodedToken;
+    const decodedToken = jwt.verify(token, JWT_SECRET) as DecodedToken;
     req.user = decodedToken; // Attach the decoded token to the request object
     next();
   } catch (err) {
