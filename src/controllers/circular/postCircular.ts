@@ -11,8 +11,8 @@ export const newCircular: RequestHandler = async (req, res, next) => {
         title: circularData.title,
         circularUrl: circularData.circularUrl,
         batch: circularData.batch,
-        deleteAt: circularData.deleteAt
-      }
+        deleteAt: circularData.deleteAt,
+      },
     });
 
     res.status(200).json(newCircular);

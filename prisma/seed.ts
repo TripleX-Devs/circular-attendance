@@ -1,6 +1,5 @@
 import prisma from "../src/db";
 
-
 async function seedSubjects() {
   try {
     await prisma.subject.upsert({

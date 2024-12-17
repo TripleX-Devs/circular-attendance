@@ -5,7 +5,6 @@ import type { RequestHandler } from "express";
 export const getCircularById: RequestHandler = async (req, res, next) => {
   const circularId = req.params.id;
 
-
   //   let resMessage = `Request to get Circular of ${circularId} was successfull.`;
   try {
     const circular = await prisma.circular.findUnique({
@@ -33,10 +32,7 @@ export const getCircular: RequestHandler = async (req, res, next) => {
     const circulars = await prisma.circular.findMany({
       take: limit > 1 ? limit : 1,
       skip: pageNum > 0 ? pageNum - 1 : 0,
-      orderBy: [
-        { updatedAt: "desc" },
-        { createdAt: "desc" },
-      ],
+      orderBy: [{ updatedAt: "desc" }, { createdAt: "desc" }],
     });
 
     res.status(200).json({
