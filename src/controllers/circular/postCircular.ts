@@ -6,8 +6,13 @@ export const newCircular: RequestHandler = async (req, res, next) => {
   const { circularData } = req.body;
 
   try {
-    const newCircular = prisma.circular.create({
-      data: { ...circularData },
+    const newCircular = await prisma.circular.create({
+      data: {
+        title: circularData.title,
+        circularUrl: circularData.circularUrl,
+        batch: circularData.batch,
+        deleteAt: circularData.deleteAt
+      }
     });
 
     res.status(200).json(newCircular);

@@ -63,6 +63,4 @@ model Circular {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   deleteAt    DateTime
-
-  @@unique([circularUrl, batch])
 }

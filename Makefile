@@ -14,4 +14,4 @@ db:
 	docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=password postgres
 # start service without the docker
 start:
-	pnpm db:migrate && pnpm db:generate && pnpm dev
+	pnpm db:migrate && pnpm db:generate && pnpm db:seed &&  pnpm dev

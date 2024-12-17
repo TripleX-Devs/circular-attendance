@@ -13,7 +13,7 @@ export default async function kafka() {
   console.log("Subscribed to topics: student.created, student.deleted");
 
   await consumer.run({
-    eachMessage: async ({ topic, message }) => {
+    eachMessage: async ({ topic, message , partition }) => {
       try {
         const event = JSON.parse(message.value?.toString() || "{}");
         console.log(`Processing event from topic ${topic}:`, event);
