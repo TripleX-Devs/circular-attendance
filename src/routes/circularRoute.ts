@@ -1,4 +1,4 @@
-import { checkForAccessToken } from "@/validation/jwtVerify";
+import { checkForAccessToken } from "../validation/jwtVerify";
 import * as circularControllers from "../controllers/circular";
 
 import { Router } from "express";

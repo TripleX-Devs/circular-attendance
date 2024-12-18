@@ -1,6 +1,6 @@
-import type { Response } from 'express';
+import type { Response } from "express";
 import prisma from "../../db";
-import { CustomRequest } from '../../validation/jwtVerify';
+import { CustomRequest } from "../../validation/jwtVerify";
 
 const getAttendanceByGroup = async (req: CustomRequest, res: Response) => {
   if (req.user?.rollType !== "teacher") {
@@ -15,12 +15,12 @@ const getAttendanceByGroup = async (req: CustomRequest, res: Response) => {
     const data = await prisma.userAttendance.findMany({
       where: {
         user: {
-          group: group
-        }
+          group: group,
+        },
       },
       include: {
-        user: true
-      }
+        user: true,
+      },
     });
 
     const result = data.map((attendance) => {
@@ -41,8 +41,10 @@ const getAttendanceByGroup = async (req: CustomRequest, res: Response) => {
       };
     });
 
-    res.json({ message: "Attendance fetched by group successfully", data: result });
-
+    res.json({
+      message: "Attendance fetched by group successfully",
+      data: result,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error", error });
